@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  dlnr_status_bot:
+    build: .
+    image: dlnr_status_bot
+    volumes:
+      - ./settings.json:/app/settings.json
+    restart: always
+
