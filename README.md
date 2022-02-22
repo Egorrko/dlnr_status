@@ -4,9 +4,13 @@
 
 ## Установка:
 
-1. Установить окружение и требуемые библиотеки
+1. Склонировать репозиторий, установить окружение и требуемые библиотеки
     ```shell
+    git clone https://github.com/Egorrko/dlnr_status.git
+    cd dlnr_status
     python -m venv env
+    source env/bin/activate  # linux
+    env/Scripts/activate.bat  # windows
     pip install -r requirements.txt
     ```
 2. Заполнить `settings.json`
