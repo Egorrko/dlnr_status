@@ -3,6 +3,8 @@ from datetime import datetime
 from typing import List
 
 import aioping
+from dateutil.tz import tz
+
 from model import Result, Server
 from settings import settings
 
@@ -20,7 +22,7 @@ async def ping_servers(servers: List[Server]) -> List[Result]:
 
 
 def pretty_output(results: List[Result]) -> str:
-    text = f'{datetime.now(tz=settings.TIMEZONE).strftime("%H:%M:%S %Z")}\n\n'
+    text = f'{datetime.now(tz=tz.gettz(settings.TIMEZONE)).strftime("%H:%M:%S %Z")}\n\n'
     for r in results:
         status = '🔴down' if r.result is None else f'🟢{r.result} ms'
         text += f'{status} {r.server.name}, {r.server.ip}\n'

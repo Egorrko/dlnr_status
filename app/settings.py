@@ -1,11 +1,9 @@
 import json
-from datetime import timedelta, timezone
-from dateutil import tz
 from pathlib import Path
-from typing import List, Optional
+from typing import List
 
 from model import Server
-from pydantic import BaseSettings, validator
+from pydantic import BaseSettings
 
 SETTINGS_PATH = 'settings.json'
 
@@ -14,13 +12,8 @@ class Settings(BaseSettings):
     BOT_TOKEN: str
     CHANNEL_USERNAME: str
     MESSAGE_ID: int
-    TIMEZONE: tz.tzfile
+    TIMEZONE: str
     SERVERS: List[Server]
-
-    @validator('TIMEZONE', pre=True)
-    def prepare_timezone(cls, value):
-        if value:
-            return tz.gettz(value)
 
     class Config:
         env_file_encoding = 'utf-8'
