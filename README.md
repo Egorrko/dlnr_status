@@ -22,3 +22,16 @@
     ```shell
     python app/main.py
     ```
+    Docker
+    ```
+    git clone https://github.com/Egorrko/dlnr_status.git
+    docker build -t dlnr_status_bot .
+    # заполните settings.json
+    docker run --rm -v ${PWD}/settings.json:/app/settings.json -d dlnr_status_bot
+    ```
+    Docker-compose
+    ```
+    git clone https://github.com/Egorrko/dlnr_status.git
+    # заполните settings.json
+    docker-compose up -d
+    ```
